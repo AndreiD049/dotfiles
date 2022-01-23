@@ -36,6 +36,7 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-cmdline'
     -- Snippets plugin
     use 'L3MON4D3/LuaSnip'
+    use 'majutsushi/tagbar'
 
     -- Navigation
     use { 'nvim-telescope/telescope.nvim',
