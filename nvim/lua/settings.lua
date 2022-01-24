@@ -15,6 +15,7 @@ opt.splitbelow = true		-- split vertical to the bottom
 opt.mouse = 'nvi'
 opt.clipboard = 'unnamedplus'
 opt.shell = vim.fn.has('win32') == 1 and 'powershell' or 'zsh'
+opt.foldlevelstart = 20
 opt.foldmethod = 'syntax'
 
 ------------------------------
@@ -50,8 +51,8 @@ filetype indent plugin on
 syntax enable
 ]])
 opt.expandtab = true
-opt.shiftwidth = 4              -- use 4 spaces when auto-indenting
-opt.tabstop = 4
+opt.shiftwidth = 2              -- use 4 spaces when auto-indenting
+opt.tabstop = 2
 opt.autoindent = true
 opt.smartindent = true
 
@@ -75,8 +76,10 @@ local cmp = require('cmp')
 cmp.setup {
     mapping = {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
         ['<C-s>'] = cmp.mapping.complete(),
     },
     snippet = {
