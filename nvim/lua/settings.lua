@@ -16,6 +16,7 @@ opt.mouse = 'nvi'
 opt.clipboard = 'unnamedplus'
 opt.shell = vim.fn.has('win32') == 1 and 'powershell' or 'zsh'
 opt.foldmethod = 'syntax'
+opt.foldlevelstart = 20
 
 ------------------------------
 -- Lint
