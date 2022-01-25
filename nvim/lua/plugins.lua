@@ -10,6 +10,7 @@ return require('packer').startup(function()
 
 	-- color scheme
 	use 'joshdick/onedark.vim'
+  use 'dracula/vim'
 
 	-- status line
 	use { 'nvim-lualine/lualine.nvim',
