@@ -39,6 +39,23 @@ g.ale_lint_on_text_changed = 'never'
 g.ale_lint_on_insert_leave = 0
 
 ------------------------------
+-- Auto closing tags
+------------------------------
+g.closetag_filenames = '*.html,*.xml,*.jsx,*.tsx'
+g.closetag_xhtml_filetypes = 'xhtml,jsx'
+cmd([[
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+]])
+g.closetag_shortcut = '>'
+g.closetag_close_shortcut = '<Leader>>'
+
+
+------------------------------
 -- Neovide GUI
 ------------------------------
 opt.guifont='FuraMono Nerd Font Mono:h11'
@@ -60,8 +77,8 @@ filetype indent plugin on
 syntax enable
 ]])
 opt.expandtab = true
-opt.shiftwidth = 2              -- use 4 spaces when auto-indenting
-opt.tabstop = 2
+opt.shiftwidth = 4              -- use 4 spaces when auto-indenting
+opt.tabstop = 4
 opt.autoindent = true
 opt.smartindent = true
 
