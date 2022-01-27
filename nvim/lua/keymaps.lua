@@ -30,5 +30,5 @@ map('n', '<F6>', [[:NvimTreeToggle<cr>]], default_opts)
 map('n', '<S-Left>', [[za]], default_opts)
 
 -- Formatting
-map('n', '<Leader>p', [[<cmd>!npx prettier --write %<cr><cr>]], default_opts)
+map('n', '<Leader>p', [[<cmd>:w<cr>!npx prettier --write %<cr><cr>]], default_opts)
 

@@ -15,12 +15,12 @@ opt.splitbelow = true		-- split vertical to the bottom
 opt.mouse = 'nvi'
 opt.clipboard = 'unnamedplus'
 opt.shell = vim.fn.has('win32') == 1 and 'powershell' or 'zsh'
-if (vim.fn.has('win32')) then
-  opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-  opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-  opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-  opt.shellquote = ''
-  opt.shellxquote = ''
+if vim.fn.has('win32') > 0 then
+    opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+    opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+    opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+    opt.shellquote = ''
+    opt.shellxquote = ''
 end
 opt.foldlevelstart = 20
 opt.foldmethod = 'syntax'
