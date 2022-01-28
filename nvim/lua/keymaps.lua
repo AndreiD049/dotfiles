@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 local default_opts = {noremap = true, silent = true}
 
-vim.g.mapleader = ' '
+vim.g.mapleader = ';'
 
 map('n', '<C-a>', [[:Telescope find_files<CR>]], default_opts)
 map('n', '<C-f>', [[:Telescope live_grep<CR>]], default_opts)
@@ -30,5 +30,8 @@ map('n', '<F6>', [[:NvimTreeToggle<cr>]], default_opts)
 map('n', '<S-Left>', [[za]], default_opts)
 
 -- Formatting
-map('n', '<Leader>p', [[<cmd>:w<cr>!npx prettier --write %<cr><cr>]], default_opts)
+map('n', '<Leader>p', [[<cmd>Neoformat prettier<cr><cr>]], default_opts)
+
+-- Set winfixheight for every new window
+-- vim.cmd([[autocmd WinNew * set noequalalways]])
 
