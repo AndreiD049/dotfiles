@@ -27,6 +27,9 @@ opt.foldmethod = 'syntax'
 opt.foldlevelstart = 20
 opt.wrap = false
 
+-- Do not resize windows when other windows are opened or closed
+opt.winfixwidth = true
+
 ------------------------------
 -- Lint
 ------------------------------
