@@ -26,6 +26,7 @@ opt.foldlevelstart = 20
 opt.foldmethod = 'syntax'
 opt.foldlevelstart = 20
 opt.wrap = false
+opt.equalalways = false
 
 ------------------------------
 -- Lint
@@ -37,6 +38,13 @@ g.ale_sign_warning = '⚠️'
 g.ale_fix_on_save = 1
 g.ale_lint_on_text_changed = 'never'
 g.ale_lint_on_insert_leave = 0
+
+
+------------------------------
+-- Neoformat
+------------------------------
+g.neoformat_verbose = 1
+g.neoformat_try_node_exe = 1
 
 ------------------------------
 -- Auto closing tags
@@ -58,7 +66,7 @@ g.closetag_close_shortcut = '<Leader>>'
 ------------------------------
 -- Neovide GUI
 ------------------------------
-opt.guifont='FuraMono Nerd Font Mono:h11'
+opt.guifont='JetBrainsMonoMedium NF:h11'
 g.neovide_refresh_rate = 60
 g.neovide_remember_window_size = true
 ------------------------------

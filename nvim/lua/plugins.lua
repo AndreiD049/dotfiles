@@ -54,4 +54,6 @@ return require('packer').startup(function()
     config = function() require('Comment').setup() end }
     use 'cohama/lexima.vim'
     use 'dense-analysis/ale'
+
+    use 'sbdchd/neoformat'
 end)
