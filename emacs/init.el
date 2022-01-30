@@ -25,11 +25,11 @@
 ;; ======================================
 
 ;; Completion
-(use-package ivy
+(use-package counsel
   :diminish
   :bind (("C-s" . swiper)
 	 :map ivy-minibuffer-map
-	 ("TAB" . ivy-alt-done)
+	 ("TAB" . ivy-partial-or-done)
 	 ("C-l" . ivy-alt-done)
 	 ("C-j" . ivy-next-line)
 	 ("C-k" . ivy-previous-line)
@@ -43,8 +43,18 @@
   :config
   (ivy-mode 1))
 
+;; Color theme
+(use-package dracula-theme
+  :init (load-theme 'dracula t))
+
+;; evil mode
+(use-package evil
+  :init (evil-mode 1))
+
 ;; Basic conifgurations
 (setq inhibit-startup-message t)
+(setq tab-always-indent 'complete)
+(setq-default indent-tabs-mode nil)
 
 (scroll-bar-mode nil)
 (menu-bar-mode -1)
@@ -57,8 +67,47 @@
 ;; Font configuration
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font Mono" :height 110)
 
-;; Load color theme
-(load-theme 'dracula t)
+;; Modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
-(require 'evil)
-(evil-mode 1)
+;; LSP
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (typescript-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+;; optionally
+(use-package lsp-ui :commands lsp-ui-mode)
+;; if you are helm user
+(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+;; if you are ivy user
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; optionally if you want to use debugger
+(use-package dap-mode)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+;; optional if you want which-key integration
+(use-package which-key
+    :config
+    (which-key-mode))
+
+(setenv "NODE_PATH" "/home/andrei/.nvm/versions/node/v14.18.3/lib/node_modules")
+
+;; Typescript
+(use-package typescript-mode
+  :mode "\\.tsx\\"
+  :config (typescript-mode))
+
+;; Prettier
+(use-package prettier
+  :mode "\\.tsx?\\"
+  :bind (("C-c f" . prettier-prettify)))

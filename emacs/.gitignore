@@ -3,3 +3,6 @@ custom.el~
 init.el~
 auto-save-list
 eshell
+.cache
+.log
+.lsp-session-v1
