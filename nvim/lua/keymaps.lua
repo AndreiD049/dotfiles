@@ -30,7 +30,7 @@ map('n', '<F6>', [[:NvimTreeToggle<cr>]], default_opts)
 map('n', '<S-Left>', [[za]], default_opts)
 
 -- Formatting
-map('n', '<Leader>p', [[<cmd>Neoformat prettier<cr><cr>]], default_opts)
+map('n', '<Leader>p', [[<cmd>silent Neoformat prettier<cr>]], default_opts)
 
 -- Set winfixheight for every new window
 -- vim.cmd([[autocmd WinNew * set noequalalways]])
