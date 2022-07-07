@@ -33,7 +33,7 @@ g.ale_lint_on_insert_leave = 0
 ------------------------------
 -- Neovide GUI
 ------------------------------
-opt.guifont='FuraMono Nerd Font Mono:h11'
+opt.guifont='FiraMono Nerd Font Mono:h12'
 g.neovide_refresh_rate = 60
 g.neovide_remember_window_size = true
 ------------------------------
@@ -80,6 +80,7 @@ cmp.setup {
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
         ['<C-s>'] = cmp.mapping.complete(),
     },
