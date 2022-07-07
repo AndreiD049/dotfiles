@@ -10,6 +10,9 @@ return require('packer').startup(function()
 
 	-- color scheme
 	use 'joshdick/onedark.vim'
+  use 'dracula/vim'
+  use 'alvan/vim-closetag'
+  use 'mattn/emmet-vim'
 
 	-- status line
 	use { 'nvim-lualine/lualine.nvim',
@@ -49,8 +52,8 @@ return require('packer').startup(function()
 
     use { 'numToStr/Comment.nvim',
     config = function() require('Comment').setup() end }
-
-    -- Navigation
     use 'cohama/lexima.vim'
     use 'dense-analysis/ale'
+
+    use 'sbdchd/neoformat'
 end)

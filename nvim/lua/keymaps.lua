@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 local default_opts = {noremap = true, silent = true}
 
-vim.g.mapleader = ' '
+vim.g.mapleader = ';'
 
 map('n', '<C-a>', [[:Telescope find_files<CR>]], default_opts)
 map('n', '<C-f>', [[:Telescope live_grep<CR>]], default_opts)
@@ -11,7 +11,6 @@ map('n', 'gd', [[ <cmd>lua vim.lsp.buf.definition()<cr> ]], default_opts)
 map('n', 'gtd', [[ <cmd>lua vim.lsp.buf.type_definition()<cr> ]], default_opts)
 map('n', 'gD', [[ <cmd>lua vim.lsp.buf.declaration()<cr> ]], default_opts)
 map('n', 'gr', [[ <cmd>lua vim.lsp.buf.references()<cr> ]], default_opts)
-map('n', 'gf', [[ <cmd>lua vim.lsp.buf.formatting_sync()<cr> ]], default_opts)
 map('n', 'gi', [[ <cmd>lua vim.lsp.buf.implementation()<cr> ]], default_opts)
 map('n', 'gh', [[ <cmd>lua vim.lsp.buf.hover()<cr> ]], default_opts)
 map('n', '<Leader>.', [[ <cmd>lua vim.lsp.buf.code_action()<cr> ]], default_opts)
@@ -28,6 +27,11 @@ map('t', '<Esc>', [[<C-\><C-N>]], default_opts)
 map('n', '<F6>', [[:NvimTreeToggle<cr>]], default_opts)
 
 -- Folding
-
 map('n', '<S-Left>', [[za]], default_opts)
+
+-- Formatting
+map('n', '<Leader>p', [[<cmd>Neoformat prettier<cr><cr>]], default_opts)
+
+-- Set winfixheight for every new window
+-- vim.cmd([[autocmd WinNew * set noequalalways]])
 
