@@ -11,6 +11,7 @@ return require('packer').startup(function()
 	-- color scheme
     use 'joshdick/onedark.vim'
     use 'dracula/vim'
+    use 'rafi/awesome-vim-colorschemes'
     use 'alvan/vim-closetag'
     use 'mattn/emmet-vim'
 
@@ -47,16 +48,20 @@ return require('packer').startup(function()
         config = function() require('telescope').setup({
             defaults = {
                 file_ignore_patterns = { "node_modules/**", "**/node_modules" }
+            },
+            mappings = {
+                i = {
+                    ["<C-Down>"] = require('telescope.actions').cycle_history_next,
+                    ["<C-Up>"] = require('telescope.actions').cycle_history_prev,
+                },
             }
         }) end, }
 
     -- EasyMotion
-    use {
-        'phaazon/hop.nvim',
+    use { 'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
         config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+            require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
         end
     }
 

@@ -19,6 +19,7 @@ map('n', '<C-l>', [[ <cmd>lua vim.diagnostic.goto_next()<cr> ]], default_opts)
 map('n', '<C-h>', [[ <cmd>lua vim.diagnostic.goto_prev()<cr> ]], default_opts)
 map('', '<Leader><Leader>f', "<cmd>lua require'hop'.hint_char1()<cr>", {})
 map('', '<Leader><Leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {})
+map('', '<Leader><Leader>/', "<cmd>lua require'hop'.hint_patterns()<cr>", {})
 
 map('n', '<Leader>q', ':ccl<CR>', default_opts)
 
