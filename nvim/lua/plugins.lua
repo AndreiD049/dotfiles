@@ -9,10 +9,10 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	-- color scheme
-	use 'joshdick/onedark.vim'
-  use 'dracula/vim'
-  use 'alvan/vim-closetag'
-  use 'mattn/emmet-vim'
+    use 'joshdick/onedark.vim'
+    use 'dracula/vim'
+    use 'alvan/vim-closetag'
+    use 'mattn/emmet-vim'
 
 	-- status line
 	use { 'nvim-lualine/lualine.nvim',
@@ -50,10 +50,22 @@ return require('packer').startup(function()
             }
         }) end, }
 
+    -- EasyMotion
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
+
     use { 'numToStr/Comment.nvim',
     config = function() require('Comment').setup() end }
     use 'cohama/lexima.vim'
     use 'dense-analysis/ale'
 
     use 'sbdchd/neoformat'
+
+    use 'tpope/vim-surround'
 end)

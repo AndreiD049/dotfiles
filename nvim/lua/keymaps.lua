@@ -17,6 +17,8 @@ map('n', '<Leader>.', [[ <cmd>lua vim.lsp.buf.code_action()<cr> ]], default_opts
 map('n', '<C-k>', [[ <cmd>lua vim.lsp.buf.signature_help()<cr> ]], default_opts)
 map('n', '<C-l>', [[ <cmd>lua vim.diagnostic.goto_next()<cr> ]], default_opts)
 map('n', '<C-h>', [[ <cmd>lua vim.diagnostic.goto_prev()<cr> ]], default_opts)
+map('', '<Leader><Leader>f', "<cmd>lua require'hop'.hint_char1()<cr>", {})
+map('', '<Leader><Leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {})
 
 map('n', '<Leader>q', ':ccl<CR>', default_opts)
 
@@ -30,7 +32,7 @@ map('n', '<F6>', [[:NvimTreeToggle<cr>]], default_opts)
 map('n', '<S-Left>', [[za]], default_opts)
 
 -- Formatting
-map('n', '<Leader>p', [[<cmd>Neoformat prettier<cr><cr>]], default_opts)
+map('n', '<Leader>p', [[<cmd>silent Neoformat prettier<cr><cr>]], default_opts)
 
 -- Set winfixheight for every new window
 -- vim.cmd([[autocmd WinNew * set noequalalways]])
