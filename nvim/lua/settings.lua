@@ -66,7 +66,14 @@ g.closetag_close_shortcut = '<Leader>>'
 ------------------------------
 -- Neovide GUI
 ------------------------------
-opt.guifont='FiraMono Nerd Font Mono:h11'
+local function changeFont(amount)
+    local font = opt.guifont['_value']
+    local start, _, size = string.find(font, ":h(%d+)")
+    opt.guifont = string.sub(font, 1, start) .. "h" .. (size + amount)
+end
+
+
+opt.guifont='FiraMono Nerd Font Mono:h10'
 g.neovide_refresh_rate = 60
 g.neovide_remember_window_size = true
 ------------------------------
