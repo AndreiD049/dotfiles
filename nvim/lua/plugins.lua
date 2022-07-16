@@ -11,7 +11,9 @@ return require('packer').startup(function()
 	-- color scheme
     use 'joshdick/onedark.vim'
     use 'dracula/vim'
+    use 'rockerBOO/boo-colorscheme-nvim'
     use 'rafi/awesome-vim-colorschemes'
+    use { 'ishan9299/modus-theme-vim' }
     use 'alvan/vim-closetag'
     use 'mattn/emmet-vim'
 
@@ -24,11 +26,7 @@ return require('packer').startup(function()
 
     use { 'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {
-        hijack_directories = {
-            enable = false
-        }
-    } end, }
+    config = function() require'nvim-tree'.setup {} end, }
 
     -- LSP
     use 'nvim-treesitter/nvim-treesitter'
@@ -66,15 +64,13 @@ return require('packer').startup(function()
     -- EasyMotion
     use { 'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        config = function()
-            require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
-        end
     }
 
-    use { 'numToStr/Comment.nvim',
-    config = function() require('Comment').setup() end }
+    -- Commenting
+    use { 'numToStr/Comment.nvim' }
+
+    -- Auto close paranthesis
     use 'cohama/lexima.vim'
-    use 'dense-analysis/ale'
 
     use 'sbdchd/neoformat'
 

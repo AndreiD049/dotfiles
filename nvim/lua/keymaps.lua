@@ -22,6 +22,7 @@ map('', '<Leader><Leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {})
 map('', '<Leader><Leader>/', "<cmd>lua require'hop'.hint_patterns()<cr>", {})
 map('n', '<Leader>fi', "<cmd>lua require('utils').changeFont(1)<cr>", default_opts);
 map('n', '<Leader>fd', "<cmd>lua require('utils').changeFont(-1)<cr>", default_opts);
+map('n', '<f5>', "<cmd>lua require('utils').toggleThemes({'modus-operandi', 'modus-vivendi'})<cr>", default_opts);
 
 map('n', '<Leader>q', ':ccl<CR>', default_opts)
 

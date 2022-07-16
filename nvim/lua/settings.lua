@@ -29,19 +29,6 @@ opt.wrap = false
 opt.equalalways = false
 
 ------------------------------
--- Lint
-------------------------------
-
-g.ale_fixers = { javascript= { 'eslint' } }
-g.ale_sign_error = '❌'
-g.ale_sign_warning = '⚠️'
-g.ale_fix_on_save = false
-g.ale_lint_on_save = false
-g.ale_lint_on_text_changed = 'never'
-g.ale_lint_on_insert_leave = 0
-
-
-------------------------------
 -- Neoformat
 ------------------------------
 g.neoformat_verbose = 1
@@ -76,7 +63,7 @@ g.neovide_remember_window_size = true
 ------------------------------
 
 opt.termguicolors = true
-cmd('colorscheme dracula')
+cmd('colorscheme modus-vivendi')
 
 ------------------------------
 -- Tabs and spacing
@@ -149,6 +136,23 @@ require('telescope').setup({
     defaults = {
         file_ignore_patterns = { "node_modules/**", "**/node_modules" },
         selection_strategy = "closest",
-        path_display = {'truncate'}
+        path_display = {'truncate'},
+        prompt_prefix = '> '
     }
 })
+
+
+
+------------------------------
+-- Treesitter
+------------------------------
+require'nvim-treesitter.configs'.setup {}
+
+------------------------------
+-- Comments 
+------------------------------
+
+require('Comment').setup{}
+
+-- Hop
+require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
