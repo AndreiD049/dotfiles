@@ -9,10 +9,11 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	-- color scheme
-	use 'joshdick/onedark.vim'
-  use 'dracula/vim'
-  use 'alvan/vim-closetag'
-  use 'mattn/emmet-vim'
+    use 'joshdick/onedark.vim'
+    use 'dracula/vim'
+    use 'rafi/awesome-vim-colorschemes'
+    use 'alvan/vim-closetag'
+    use 'mattn/emmet-vim'
 
 	-- status line
 	use { 'nvim-lualine/lualine.nvim',
@@ -47,8 +48,22 @@ return require('packer').startup(function()
         config = function() require('telescope').setup({
             defaults = {
                 file_ignore_patterns = { "node_modules/**", "**/node_modules" }
+            },
+            mappings = {
+                i = {
+                    ["<C-Down>"] = require('telescope.actions').cycle_history_next,
+                    ["<C-Up>"] = require('telescope.actions').cycle_history_prev,
+                },
             }
         }) end, }
+
+    -- EasyMotion
+    use { 'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
+        end
+    }
 
     use { 'numToStr/Comment.nvim',
     config = function() require('Comment').setup() end }
@@ -56,4 +71,6 @@ return require('packer').startup(function()
     use 'dense-analysis/ale'
 
     use 'sbdchd/neoformat'
+
+    use 'tpope/vim-surround'
 end)

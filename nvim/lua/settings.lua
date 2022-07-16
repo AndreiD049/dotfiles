@@ -66,7 +66,14 @@ g.closetag_close_shortcut = '<Leader>>'
 ------------------------------
 -- Neovide GUI
 ------------------------------
-opt.guifont='FiraMono Nerd Font Mono:h12'
+local function changeFont(amount)
+    local font = opt.guifont['_value']
+    local start, _, size = string.find(font, ":h(%d+)")
+    opt.guifont = string.sub(font, 1, start) .. "h" .. (size + amount)
+end
+
+
+opt.guifont='FiraMono Nerd Font Mono:h10'
 g.neovide_refresh_rate = 60
 g.neovide_remember_window_size = true
 ------------------------------
@@ -108,6 +115,9 @@ local luasnip = require('luasnip')
 
 local cmp = require('cmp')
 cmp.setup {
+    completion = {
+        autocomplete = false,
+    },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
@@ -115,7 +125,8 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-        ['<C-s>'] = cmp.mapping.complete(),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-Right>'] = cmp.mapping.complete(),
     },
     snippet = {
         expand = function(args)
@@ -131,9 +142,6 @@ cmp.setup {
                 return vim.api.nvim_list_bufs()
             end
         } },
-    },
-    experimental = {
-        ghost_text = true
     }
 }
 
