@@ -35,7 +35,8 @@ opt.equalalways = false
 g.ale_fixers = { javascript= { 'eslint' } }
 g.ale_sign_error = '❌'
 g.ale_sign_warning = '⚠️'
-g.ale_fix_on_save = 1
+g.ale_fix_on_save = false
+g.ale_lint_on_save = false
 g.ale_lint_on_text_changed = 'never'
 g.ale_lint_on_insert_leave = 0
 
@@ -66,12 +67,6 @@ g.closetag_close_shortcut = '<Leader>>'
 ------------------------------
 -- Neovide GUI
 ------------------------------
-local function changeFont(amount)
-    local font = opt.guifont['_value']
-    local start, _, size = string.find(font, ":h(%d+)")
-    opt.guifont = string.sub(font, 1, start) .. "h" .. (size + amount)
-end
-
 
 opt.guifont='FiraMono Nerd Font Mono:h10'
 g.neovide_refresh_rate = 60
@@ -145,3 +140,15 @@ cmp.setup {
     }
 }
 
+------------------------------
+-- Telescope
+------------------------------
+
+require('telescope').load_extension('zf-native')
+require('telescope').setup({
+    defaults = {
+        file_ignore_patterns = { "node_modules/**", "**/node_modules" },
+        selection_strategy = "closest",
+        path_display = {'truncate'}
+    }
+})

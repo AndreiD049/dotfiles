@@ -24,7 +24,11 @@ return require('packer').startup(function()
 
     use { 'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {} end, }
+    config = function() require'nvim-tree'.setup {
+        hijack_directories = {
+            enable = false
+        }
+    } end, }
 
     -- LSP
     use 'nvim-treesitter/nvim-treesitter'
@@ -43,11 +47,13 @@ return require('packer').startup(function()
     use 'majutsushi/tagbar'
 
     -- Navigation
+    use "natecraddock/telescope-zf-native.nvim"
     use { 'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } },
         config = function() require('telescope').setup({
             defaults = {
-                file_ignore_patterns = { "node_modules/**", "**/node_modules" }
+                file_ignore_patterns = { "node_modules/**", "**/node_modules" },
+                selection_strategy = "closest",
             },
             mappings = {
                 i = {
