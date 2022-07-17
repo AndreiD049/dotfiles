@@ -75,4 +75,7 @@ return require('packer').startup(function()
     use 'sbdchd/neoformat'
 
     use 'tpope/vim-surround'
+
+    -- Cheat.sh
+    use 'dbeniamine/cheat.sh-vim'
 end)

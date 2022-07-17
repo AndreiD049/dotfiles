@@ -24,4 +24,3 @@ function M.toggleThemes(themes)
 end
 
 return M
-

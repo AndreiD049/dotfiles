@@ -91,15 +91,10 @@ end)
 -- Setup nvim-cmp autocomplete
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-vim.o.completeopt = 'menuone,noselect'
-
-local luasnip = require('luasnip')
+vim.o.completeopt = 'menu,menuone,noselect'
 
 local cmp = require('cmp')
 cmp.setup {
-    completion = {
-        autocomplete = false,
-    },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
@@ -112,12 +107,12 @@ cmp.setup {
     },
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'lausnip' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer', option = {
             get_bufnrs = function()
