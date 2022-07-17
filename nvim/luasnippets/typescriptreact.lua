@@ -1,13 +1,3 @@
-local ls = require'luasnip'
-local parse = ls.parser.parse_snippet
-local fmt = require('luasnip.extras.fmt').fmt;
-local rep = require('luasnip.extras').rep;
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
-local f = ls.function_node
-local c = ls.choice_node
-
 local snippets = {
     s('state', fmt("const [{}, set{}] = React.useState({});{}", {
         i(1, "state"),
@@ -16,7 +6,20 @@ local snippets = {
         end, {1}),
         i(2, "value"),
         i(0)
-    }))
+    })),
+    s("effect", fmt("React.useEffect(() => {{\n\t{func}\n}}, [{deps}]);", {
+        deps = i(1),
+        func = i(2),
+    })),
+    s("rfc", fmt([[
+        const {name}: React.FC = () => {{
+            return (<div>{after}</div>);
+        }};]],
+        {
+            name = i(1, "component"),
+            after = i(0)
+        }
+    )),
 }
 
 local autosnippets = {}

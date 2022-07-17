@@ -3,9 +3,9 @@ local default_opts = {noremap = true, silent = true}
 
 vim.g.mapleader = ';'
 
-map('n', '<C-a>', ":Telescope find_files<CR>", default_opts)
+map('n', '<C-p>', ":Telescope find_files<CR>", default_opts)
 map('n', '<C-f>', ":Telescope live_grep<CR>", default_opts)
-map('n', '<C-p>', ":Telescope buffers<CR>", default_opts)
+map('n', '<C-b>', ":Telescope buffers<CR>", default_opts)
 
 map('n', 'gd', "<cmd>lua vim.lsp.buf.definition()<cr>", default_opts)
 map('n', 'gtd', "<cmd>lua vim.lsp.buf.type_definition()<cr>", default_opts)

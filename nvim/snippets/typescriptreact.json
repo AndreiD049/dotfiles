@@ -1,8 +1,0 @@
-{
-    "useState": {
-        "prefix": "state",
-        "body": [
-            "const [${1:name}, set$1] = React.useState(${2:value});"
-        ]
-    }
-}
