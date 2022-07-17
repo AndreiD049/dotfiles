@@ -25,5 +25,6 @@ ls.config.set_config {
 ls.cleanup()
 
 ls.filetype_set("typescript", { "typescript", "typescriptreact" })
+ls.filetype_set("typescriptreact", { "typescript", "typescriptreact" })
 require('luasnip.loaders.from_lua').lazy_load({ paths = "./luasnippets" })
 require('luasnip.loaders.from_vscode').lazy_load({ paths = "./snippets" })

@@ -25,8 +25,9 @@ local snippets = {
             break;
     }};]], {
         cons = i(1, "constant"),
-        body = i(2, "body"),
-        default = i(3, "default")
+        option = i(2, "option"),
+        body = i(3, "body"),
+        default = i(4, "default")
     })),
 }
 
