@@ -16,18 +16,17 @@ local snippets = {
         body = i(5)
     })),
     s("switch", fmt([[
-    switch ({constant}) {
+    switch ({cons}) {{
         case {option}:
             {body}
             break;
         default:
             {default}
             break;
-    };
-    ]], {
-        constant: i(1, "constant"),
-        body: i(2, "body"),
-        default: i(3, "default")
+    }};]], {
+        cons = i(1, "constant"),
+        body = i(2, "body"),
+        default = i(3, "default")
     })),
 }
 
