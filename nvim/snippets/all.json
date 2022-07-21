@@ -1,0 +1,23 @@
+{
+    "snip1": {
+        "prefix": "all32",
+        "description": "test",
+        "body": [
+            "expands? jumps? $1 $2 !"
+        ]
+    },
+    "snip2": {
+        "prefix": "all2",
+        "description": "test",
+        "body": [
+            "test"
+        ]
+    },
+    "snip3": {
+        "prefix": "all3",
+        "description": "test",
+        "body": [
+            "expand ? $1 : $2"
+        ]
+    }
+}

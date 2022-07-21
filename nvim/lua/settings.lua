@@ -31,18 +31,6 @@ opt.equalalways = false
 opt.grepprg="rg --vimgrep --no-heading --smart-case $*"
 
 ------------------------------
--- Lint
-------------------------------
-
-g.ale_fixers = { javascript= { 'eslint' } }
-g.ale_sign_error = '❌'
-g.ale_sign_warning = '⚠️'
-g.ale_fix_on_save = 1
-g.ale_lint_on_text_changed = 'never'
-g.ale_lint_on_insert_leave = 0
-
-
-------------------------------
 -- Neoformat
 ------------------------------
 g.neoformat_verbose = 1
@@ -68,12 +56,6 @@ g.closetag_close_shortcut = '<Leader>>'
 ------------------------------
 -- Neovide GUI
 ------------------------------
-local function changeFont(amount)
-    local font = opt.guifont['_value']
-    local start, _, size = string.find(font, ":h(%d+)")
-    opt.guifont = string.sub(font, 1, start) .. "h" .. (size + amount)
-end
-
 
 opt.guifont='FiraMono Nerd Font Mono:h10'
 g.neovide_refresh_rate = 60
@@ -83,7 +65,7 @@ g.neovide_remember_window_size = true
 ------------------------------
 
 opt.termguicolors = true
-cmd('colorscheme dracula')
+cmd('colorscheme modus-vivendi')
 
 ------------------------------
 -- Tabs and spacing
@@ -111,15 +93,10 @@ end)
 -- Setup nvim-cmp autocomplete
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-vim.o.completeopt = 'menuone,noselect'
-
-local luasnip = require('luasnip')
+vim.o.completeopt = 'menu,menuone,noselect'
 
 local cmp = require('cmp')
 cmp.setup {
-    completion = {
-        autocomplete = false,
-    },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
@@ -132,12 +109,12 @@ cmp.setup {
     },
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'lausnip' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer', option = {
             get_bufnrs = function()
@@ -147,3 +124,32 @@ cmp.setup {
     }
 }
 
+------------------------------
+-- Telescope
+------------------------------
+
+require('telescope').load_extension('zf-native')
+require('telescope').setup({
+    defaults = {
+        file_ignore_patterns = { "node_modules/**", "**/node_modules" },
+        selection_strategy = "closest",
+        path_display = {'truncate'},
+        prompt_prefix = '> '
+    }
+})
+
+
+
+------------------------------
+-- Treesitter
+------------------------------
+require'nvim-treesitter.configs'.setup {}
+
+------------------------------
+-- Comments 
+------------------------------
+
+require('Comment').setup{}
+
+-- Hop
+require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })

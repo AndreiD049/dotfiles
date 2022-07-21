@@ -11,7 +11,9 @@ return require('packer').startup(function()
 	-- color scheme
     use 'joshdick/onedark.vim'
     use 'dracula/vim'
+    use 'rockerBOO/boo-colorscheme-nvim'
     use 'rafi/awesome-vim-colorschemes'
+    use { 'ishan9299/modus-theme-vim' }
     use 'alvan/vim-closetag'
     use 'mattn/emmet-vim'
 
@@ -43,11 +45,13 @@ return require('packer').startup(function()
     use 'majutsushi/tagbar'
 
     -- Navigation
+    use "natecraddock/telescope-zf-native.nvim"
     use { 'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } },
         config = function() require('telescope').setup({
             defaults = {
-                file_ignore_patterns = { "node_modules/**", "**/node_modules" }
+                file_ignore_patterns = { "node_modules/**", "**/node_modules" },
+                selection_strategy = "closest",
             },
             mappings = {
                 i = {
@@ -60,17 +64,18 @@ return require('packer').startup(function()
     -- EasyMotion
     use { 'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        config = function()
-            require'hop'.setup({ keys = 'etovxqpdygfblzhckisuran' })
-        end
     }
 
-    use { 'numToStr/Comment.nvim',
-    config = function() require('Comment').setup() end }
+    -- Commenting
+    use { 'numToStr/Comment.nvim' }
+
+    -- Auto close paranthesis
     use 'cohama/lexima.vim'
-    use 'dense-analysis/ale'
 
     use 'sbdchd/neoformat'
 
     use 'tpope/vim-surround'
+
+    -- Cheat.sh
+    use 'dbeniamine/cheat.sh-vim'
 end)
