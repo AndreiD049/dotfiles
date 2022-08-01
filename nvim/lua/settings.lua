@@ -28,7 +28,10 @@ opt.foldlevelstart = 20
 opt.wrap = false
 opt.equalalways = false
 
-opt.grepprg="rg --vimgrep --no-heading --smart-case $*"
+opt.smartcase = true
+opt.matchpairs:append('=:;')
+
+opt.grepprg="rg --vimgrep --no-heading --smart-case $*";
 
 ------------------------------
 -- Neoformat
