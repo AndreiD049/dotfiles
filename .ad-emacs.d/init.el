@@ -26,8 +26,8 @@
 
 ;;; Default
 (setq custom-theme-directory (with-conf-dir "themes"))
-(setq make-backup-files -1)
-(setq vc-make-backup-files -1)
+(setq make-backup-files nil)
+(setq vc-make-backup-files nil)
 
 ;; line-numbers
 (setq display-line-numbers-type 'relative)
