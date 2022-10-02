@@ -1,0 +1,8 @@
+-----------------------------
+-- Import files
+------------------------------
+
+require("plugins")
+require("settings")
+require("keymaps")
+

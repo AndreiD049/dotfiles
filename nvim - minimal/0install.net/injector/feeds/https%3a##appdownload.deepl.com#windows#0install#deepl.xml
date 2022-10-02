@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed-preferences last-checked="0" xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
+  <implementation id="sha256new_ME32KR4KFS62IPP6CZ6OLXWMK62LKHIR5M2Y3OPQE5VDTOKMLW6A" rollout-percentage="37" />
+</feed-preferences>
